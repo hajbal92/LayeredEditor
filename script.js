@@ -114,6 +114,17 @@ $(document).ready(function() {
 		
 		return false;
 	});
+
+	$(".search form.empty-layer").submit(function(){
+		var title = $('.search form.empty-layer input[name=title]').val();
+		console.log(title);
+		jCollage.addEmptyLayer(title);
+		updateLayers(jCollage.getLayers());
+		
+		$("#layer_" + (jCollage.getLayers().length - 1)).addClass("selected");
+		
+		return false;
+	});
 });
 
 function getSelectedLayer() {
